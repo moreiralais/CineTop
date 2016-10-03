@@ -2,4 +2,5 @@
     <string name="app_name">CineTop</string>
     <string name="action_settings">Settings</string>
     <string name="pop_name">PopMovies</string>
+    <string name="details">Details</string>
 </resources>

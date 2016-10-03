@@ -47,12 +47,13 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
 
         holder.titulo.setText(resultJsons.get(i).getOriginal_title());
         holder.overview.setText(resultJsons.get(i).getOverview());
+        holder.duracao.setText(String.valueOf(resultJsons.get(i).getRuntime())+" min");
         StringBuilder genero = new StringBuilder();
         for(Genre r :resultJsons.get(i).getGenres()){
 
             Log.i("LOG-CINE", "====== "+r.getName());
             genero.append(r.getName());
-            genero.append(" - ");
+            genero.append(" ");
         }
         holder.genero.setText(genero.toString());
         holder.origem.setText(resultJsons.get(i).getOriginal_language());
