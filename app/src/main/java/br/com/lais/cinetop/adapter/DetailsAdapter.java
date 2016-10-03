@@ -2,6 +2,7 @@ package br.com.lais.cinetop.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,10 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
 
         holder.titulo.setText(resultJsons.get(i).getOriginal_title());
         holder.overview.setText(resultJsons.get(i).getOverview());
-        StringBuilder genero = null;
-        for(Genre r :resultJsons.get(i).getGenre_ids()){
+        StringBuilder genero = new StringBuilder();
+        for(Genre r :resultJsons.get(i).getGenres()){
+
+            Log.i("LOG-CINE", "====== "+r.getName());
             genero.append(r.getName());
             genero.append(" - ");
         }

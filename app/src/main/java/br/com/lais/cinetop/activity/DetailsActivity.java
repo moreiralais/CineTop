@@ -72,7 +72,10 @@ public class DetailsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
 
-        detailsAdapter = new DetailsAdapter(getApplicationContext(), Arrays.asList(jsonResponse));
+        List<JsonResponseDetails> lista = new ArrayList<>();
+        lista.add(jsonResponse);
+
+        detailsAdapter = new DetailsAdapter(getApplicationContext(), lista);
         recyclerView.setAdapter(detailsAdapter);
     }
 }
