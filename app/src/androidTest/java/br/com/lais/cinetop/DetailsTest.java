@@ -33,7 +33,7 @@ public class DetailsTest {
     @Before
     public void setUp()throws Exception
     {
-        launchActivity = testRule.launchActivity(new Intent().putExtra("filme", new ResultJson("poster_path","original_title","vote_average",1)));
+        launchActivity = testRule.launchActivity(new Intent().putExtra("filme", new ResultJson("poster_path","original_title","vote_average",550)));
         recyclerView = (RecyclerView) launchActivity.findViewById(R.id.recycler_details);
     }
 
@@ -57,5 +57,10 @@ public class DetailsTest {
         assertNotNull(filme);
 
     }
+
+    /*@Test
+    public void test () throws Exception{
+
+    }*/
 
 }
