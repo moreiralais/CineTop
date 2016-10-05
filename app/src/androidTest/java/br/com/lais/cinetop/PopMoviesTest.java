@@ -6,6 +6,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -27,12 +28,14 @@ public class PopMoviesTest {
 
     @Rule
     public ActivityTestRule testRule = new ActivityTestRule(PopMoviesActivity.class);
+    private TextView titulo;
 
     @Before
     public void setUp()throws Exception
     {
         activity = testRule.getActivity();
         recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_filme);
+        titulo = (TextView) activity.findViewById(R.id.titulo);
     }
 
     @Test
@@ -55,9 +58,10 @@ public class PopMoviesTest {
     }
 
     @Test
-    public void cliqueRecyclerViewDeveIrNovaIntent() throws Exception{
-        //TODO
-        assertEquals(1,1);
+    public void tituloNaoDeveSerNulo() throws Exception{
+        assertNotNull(titulo.getText());
     }
+
+
 
 }
