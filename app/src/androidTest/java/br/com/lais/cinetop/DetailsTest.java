@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -16,6 +18,7 @@ import java.io.Serializable;
 import br.com.lais.cinetop.activity.DetailsActivity;
 import br.com.lais.cinetop.model.ResultJson;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
@@ -28,6 +31,8 @@ public class DetailsTest {
 
     @Rule
     public ActivityTestRule testRule = new ActivityTestRule(DetailsActivity.class);
+    private TextView duracao;
+    private TextView origem;
 
 
     @Before
@@ -35,6 +40,8 @@ public class DetailsTest {
     {
         launchActivity = testRule.launchActivity(new Intent().putExtra("filme", new ResultJson("poster_path","original_title","vote_average",550)));
         recyclerView = (RecyclerView) launchActivity.findViewById(R.id.recycler_details);
+        duracao = (TextView)launchActivity.findViewById(R.id.duracao);
+        origem = (TextView) launchActivity.findViewById(R.id.origem);
     }
 
     @Test
@@ -61,6 +68,16 @@ public class DetailsTest {
     @Test
     public void recyclerViewLayoutManagerNaoDeveSerNull () throws Exception{
         assertNotNull(recyclerView.getLayoutManager());
+    }
+
+    @Test
+    public void duracaoEsperada() throws Exception{
+        assertEquals("139 min",duracao.getText());
+    }
+
+    @Test
+    public void origemEsperada() throws Exception{
+        assertEquals("en",origem.getText());
     }
 
 }
