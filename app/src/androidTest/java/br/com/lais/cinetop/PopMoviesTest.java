@@ -50,6 +50,11 @@ public class PopMoviesTest {
     }
 
     @Test
+    public void recyclerViewLayoutManagerNaoDeveSerNull () throws Exception{
+        assertNotNull(recyclerView.getLayoutManager());
+    }
+
+    @Test
     public void cliqueRecyclerViewDeveIrNovaIntent() throws Exception{
         //TODO
         assertEquals(1,1);
