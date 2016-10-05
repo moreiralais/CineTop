@@ -58,9 +58,9 @@ public class DetailsTest {
 
     }
 
-    /*@Test
-    public void test () throws Exception{
-
-    }*/
+    @Test
+    public void recyclerViewLayoutManagerNaoDeveSerNull () throws Exception{
+        assertNotNull(recyclerView.getLayoutManager());
+    }
 
 }
