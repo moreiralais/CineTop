@@ -20,6 +20,7 @@ import br.com.lais.cinetop.model.ResultJson;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -42,6 +43,7 @@ public class DetailsTest {
         recyclerView = (RecyclerView) launchActivity.findViewById(R.id.recycler_details);
         duracao = (TextView)launchActivity.findViewById(R.id.duracao);
         origem = (TextView) launchActivity.findViewById(R.id.origem);
+
     }
 
     @Test
@@ -71,13 +73,8 @@ public class DetailsTest {
     }
 
     @Test
-    public void duracaoEsperada() throws Exception{
-        assertEquals("139 min",duracao.getText());
-    }
-
-    @Test
-    public void origemEsperada() throws Exception{
-        assertEquals("en",origem.getText());
+    public void recyclerViewHasFixedSize() throws Exception{
+        assertTrue(recyclerView.hasFixedSize());
     }
 
 }

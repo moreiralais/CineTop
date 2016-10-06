@@ -18,6 +18,7 @@ import br.com.lais.cinetop.model.ResultJson;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(AndroidJUnit4.class)
@@ -60,6 +61,11 @@ public class PopMoviesTest {
     @Test
     public void tituloNaoDeveSerNulo() throws Exception{
         assertNotNull(titulo.getText());
+    }
+
+    @Test
+    public void recyclerViewMaiorQueZero() throws Exception{
+        assertTrue(recyclerView.getAdapter().getItemCount()>0);
     }
 
 
