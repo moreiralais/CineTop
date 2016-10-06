@@ -43,6 +43,14 @@ public class DetailsActivity extends AppCompatActivity {
             MovieAPI movieAPI = MovieAPIInstance.getMovieAPI();
             String api_key = DetailsActivity.this.getResources().getString(R.string.api_key);
 
+            layoutManager = new LinearLayoutManager(DetailsActivity.this);
+            layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+            recyclerView = (RecyclerView) findViewById(R.id.recycler_details);
+
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(layoutManager);
+
             Call<JsonResponseDetails> call = movieAPI.getDetails(filme.getId(),api_key);
 
             call.enqueue(new Callback<JsonResponseDetails>() {
@@ -64,13 +72,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void tratarRetornoCallback(JsonResponseDetails jsonResponse) {
-        layoutManager = new LinearLayoutManager(DetailsActivity.this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_details);
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager);
 
         List<JsonResponseDetails> lista = new ArrayList<>();
         lista.add(jsonResponse);
